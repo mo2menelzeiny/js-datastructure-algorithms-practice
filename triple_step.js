@@ -20,11 +20,11 @@ exports.generateSequences = (list) => {
 };
 
 exports.maxSubArrayNonConsecutive = (arr) => {
-    let maxCurrent = [arr[0], Math.max(arr[0], arr[1])];
-    let maxGlobal = Math.max(...maxCurrent);
+  let maxCur = [arr[0], Math.max(arr[0], arr[1])];
+  let maxGlob = Math.max(...maxCur);
     for (let i = 2; i < arr.length; i++) {
-        maxCurrent[i] = Math.max(arr[i], maxCurrent[i-2] + arr[i], maxGlobal);
-        maxGlobal = Math.max(maxGlobal, maxCurrent[i]);
+        maxCur[i] =  Math.max(arr[i], maxCur[i - 2] + arr[i], maxGlob);
+        maxGlob = Math.max(maxGlob, maxCur[i])
     }
-    return maxGlobal;
+    return maxGlob
 };
